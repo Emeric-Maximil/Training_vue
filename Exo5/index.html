@@ -9,20 +9,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body id="test">
+    <h1>TP DataBinding - Profile User</h1>
     <div id="app">
-        <p>{{monNom}}</p>
-        <p>{{monInt}}</p>
-        <!-- version moustache-->
-        <p>{{afficherLivre()}}</p>
-
-        <!-- version v-on:click-->
-        <button v-on:click="afficherLivre">Livre aléatoire</button>
-
-
-        <!-- version v-if/else-->
-        <h1 v-if="monInt > 0.5">Numéro 1</h1>
-        <h1 v-else>Numéro 2</h1>
+        <img v-bind:src="imgLink" alt="aie aie ouille">
         
+        <p>{{myName}}</p>
+        <input type="text" v-bind:value="{{myMame}}">
+
+        <p>{{myAge}}</p>
+
+        <!-- version moustache-->
+        <p>age + 10 = {{augmenterAge()}}</p>
+        <p>{{favoriteNum}}</p>
+
+       
+
         
     </div>
     
