@@ -2,7 +2,7 @@
     <div class="container my-1">
         <ul class="list-group">
             <h2 class="list-group-item">{{leNom}}</h2> 
-            <h2 class="list-group-item">{{premiumData?"Ami Premium":"Ami Nul"}}</h2> 
+            <h2 class="list-group-item">{{premium?"Ami Premium":"Ami Nul"}}</h2> 
             <button @click="afficherDetails" class="btn btn-primary">Voir Détails</button>           
             <button @click="afficherPremium" class="btn btn-danger">Prémium
             </button>           
@@ -36,6 +36,10 @@ export default {
             required:false,
             default:false,
             //validator: function(value){return value==='1' || value==='0'}
+        },
+        leId:{
+            type:String,
+            required:true
         }
     },
     data(){
@@ -48,15 +52,26 @@ export default {
                 email:'jojo@barjo.com',
                 
             },
-            premiumData: this.premium
+            //premiumData: this.premium
         }
+    },
+    emits:{
+         'mon-event-premium':id => {
+            if(id){
+                return true;
+            }else{
+                console.warn("OMG WTF TA PAS MIS LE TRUC");
+            }
+         }
+
     },
     methods:{
         afficherDetails(){
             this.detailsVisibles = !this.detailsVisibles;
         },
         afficherPremium(){
-            this.premiumData = !this.premiumData;
+            //this.premiumData = !this.premiumData;
+            this.$emit("mon-event-premium",this.leId);
         }
     },
 }
