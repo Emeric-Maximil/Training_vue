@@ -34,6 +34,7 @@
     methods:{
         submitData(){
             this.$emit('add-ami',this.enteredName,this.enteredPhone, this.enteredMail);
+            
         }
     }
     }

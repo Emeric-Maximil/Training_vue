@@ -12,6 +12,7 @@
       :leMail=unAmi.email 
       :premium=unAmi.premium
       @mon-event-premium="afficherStatusPremium"
+      @mon-event-suppr="effacerAmi"
       ></un-ami>
       <!--
       <un-ami premium=false leNom="Jerome" lePhone="0635587894" leMail="martin.matin@"></un-ami>   
@@ -51,6 +52,7 @@ export default{
       unAmiIdentified.premium = !unAmiIdentified.premium;
     },
     ajouterAmi(name, phone, mail){
+      
       let newAmiContact  = {
         id:new Date().toISOString(),
         name:name,
@@ -59,6 +61,11 @@ export default{
         premium:false,
       }
       this.lesAmis.push(newAmiContact);
+    },
+    effacerAmi(leIdDeAmi){
+      console.log('supprimer ami ? ');
+      console.log(leIdDeAmi);
+      this.lesAmis = this.lesAmis.filter((unePersonne)=> unePersonne.id !== leIdDeAmi);
     }
   }
 }
