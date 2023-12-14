@@ -65,7 +65,7 @@ export default{
     effacerAmi(leIdDeAmi){
       console.log('supprimer ami ? ');
       console.log(leIdDeAmi);
-      this.lesAmis = this.lesAmis.filter((unePersonne)=> unePersonne.id !== leIdDeAmi);
+      this.lesAmis =  this.lesAmis.filter((unePersonne)=> unePersonne.id !== leIdDeAmi);
     }
   }
 }
